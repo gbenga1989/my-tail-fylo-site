@@ -14,7 +14,10 @@ module.exports = {
       fontFamily:{
         sans: ['Raleway', 'sans-serif'],
         opensans: ['Open sans', 'sans-serif']
-      }
+      }, 
+      backgroundImage: () => ({
+        'logo-dark-mode':"url('../images/logo-dark-mode.svg')",
+      })
     },
   },
   plugins: [],
