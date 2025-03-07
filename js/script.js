@@ -8,9 +8,19 @@ if (
         (!("color-theme" in localStorage) &&
           window.matchMedia("(prefers-color-scheme: dark)").matches)
       ) {
-        document.documentElement.classList.add("dark");
+        // show light icom
+        themeToggleLightIcon.classList.remove('hidden')
       } else {
-        document.documentElement.classList.remove("dark");
+        themeToggleDarkIcon.classList.remove('hidden')
+      }
+
+      // listen for toggle button click
+      themeToggleBtn.addEventListener('click', toggleMode)
+
+      function toggleMode(){
+        // toggle icon
+         themeToggleDarkIcon.classList.toggle('hidden')
+         themeToggleLightIcon.classList.toggle('hidden')
       }
 
       
