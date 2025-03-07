@@ -21,6 +21,19 @@ if (
         // toggle icon
          themeToggleDarkIcon.classList.toggle('hidden')
          themeToggleLightIcon.classList.toggle('hidden')
+
+
+        //  if is set in local storage
+        if(localStorage.getItem('color-theme')){
+          // if light, mmake dark and save in local storage
+          if(localStorage.getItem('color-theme') === light){
+            document.documentElement.classList.add('dark')
+            localStorage.setItem('color-theme', 'dark')
+          } else{
+             document.documentElement.classList.remove('dark')
+            localStorage.setItem('color-theme', 'light')
+          }
+        }
       }
 
       
