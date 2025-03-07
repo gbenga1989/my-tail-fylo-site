@@ -14,26 +14,34 @@ if (
         themeToggleDarkIcon.classList.remove('hidden')
       }
 
-      // listen for toggle button click
-      themeToggleBtn.addEventListener('click', toggleMode)
+     // Listen for toggle button click
+themeToggleBtn.addEventListener('click', toggleMode)
 
-      function toggleMode(){
-        // toggle icon
-         themeToggleDarkIcon.classList.toggle('hidden')
-         themeToggleLightIcon.classList.toggle('hidden')
+function toggleMode() {
+  // Toggle icon
+  themeToggleDarkIcon.classList.toggle('hidden')
+  themeToggleLightIcon.classList.toggle('hidden')
 
-
-        //  if is set in local storage
-        if(localStorage.getItem('color-theme')){
-          // if light, mmake dark and save in local storage
-          if(localStorage.getItem('color-theme') === light){
-            document.documentElement.classList.add('dark')
-            localStorage.setItem('color-theme', 'dark')
-          } else{
-             document.documentElement.classList.remove('dark')
-            localStorage.setItem('color-theme', 'light')
-          }
-        }
-      }
+  // If is set in localstorage
+  if (localStorage.getItem('color-theme')) {
+    // If light, make dark and save in localstorage
+    if (localStorage.getItem('color-theme') === 'light') {
+      document.documentElement.classList.add('dark')
+      localStorage.setItem('color-theme', 'dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+      localStorage.setItem('color-theme', 'light')
+    }
+  } else {
+    // If not in localstorage
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark')
+      localStorage.setItem('color-theme', 'light')
+    } else {
+      document.documentElement.classList.add('dark')
+      localStorage.setItem('color-theme', 'dark')
+    }
+  }
+}
 
       
